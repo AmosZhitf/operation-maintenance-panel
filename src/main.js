@@ -16,6 +16,9 @@ import axios from "axios";
 import swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.css";
 
+import installElementPlus from './plugins/element'
+
+
 function isSessionStorageSupported() {
   var storage = window.sessionStorage;
   try {
@@ -34,6 +37,7 @@ if (!isSessionStorageSupported()) {
 const options = { containerClassName: "ct-notification" };
 
 const appInstance = createApp(App);
+installElementPlus(appInstance);
 
 const runToast = (pos, type, ownText, ownIcon) => {
   const text = "Notification";
