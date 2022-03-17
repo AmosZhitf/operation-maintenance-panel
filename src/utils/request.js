@@ -27,7 +27,7 @@ service.interceptors.response.use(
         }
     },
     error => {
-        ElMessage.error('请求错误');
+        ElMessage.error(JSON.stringify(error.response));
         console.log(error);
         return Promise.reject();
     }
