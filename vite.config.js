@@ -5,5 +5,24 @@ export default {
     plugins: [vue()],
     optimizeDeps: {
         include: ['schart.js']
-    }
+    },
+
+    server: {
+        port: 3000,
+        cors: true, // 默认启用并允许任何源
+        open: true, // 在服务器启动时自动在浏览器中打开应用程序
+        //反向代理配置，注意rewrite写法
+        proxy: {
+            "^\/workflow": {
+                target: "https://zhmle-registry.dev.chohotech.com", //代理接口
+                changeOrigin: true,
+                rewrite: (path) => path.replace(/^\/workflow/, ""),
+            },
+            //   "^\/workflow\/*.*": {
+            //     target: "https://zhmle-registry.dev.chohotech.com", //代理接口
+            //     changeOrigin: true,
+            //     rewrite: (path) => path.replace(/^\/workflow/, ""),
+            //   },
+        },
+    },
 }

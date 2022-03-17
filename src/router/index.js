@@ -4,13 +4,20 @@ import Home from "../views/Home.vue";
 const routes = [
     {
         path: '/',
-        redirect: '/dashboard'
+        redirect: '/workflow'
     }, {
         path: "/",
         name: "Home",
         component: Home,
         children: [
             {
+                path: "/workflow",
+                name: "workflow",
+                meta: {
+                    title: '工作流'
+                },
+                component: () => import ("../views/amos/Workflow.vue")
+            },{
                 path: "/dashboard",
                 name: "dashboard",
                 meta: {

@@ -39,6 +39,12 @@ export default {
     setup() {
         const items = [
             {
+                icon: "el-icon-lx-rank",
+                index: "/workflow",
+                title: "工作流",
+            },
+
+            {
                 icon: "el-icon-lx-home",
                 index: "/dashboard",
                 title: "系统首页",
