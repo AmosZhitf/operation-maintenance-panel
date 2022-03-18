@@ -81,7 +81,8 @@ export default {
                     getData();
                     ElMessage.success("删除成功");
                 });
-            });
+            })
+            .catch(() => {});
         };
 
         return {

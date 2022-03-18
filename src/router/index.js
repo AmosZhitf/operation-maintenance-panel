@@ -17,7 +17,8 @@ const routes = [
                     title: '工作流'
                 },
                 component: () => import ("../views/amos/Workflow.vue")
-            },{
+            },
+            {
                 path: "/dashboard",
                 name: "dashboard",
                 meta: {
@@ -134,7 +135,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-    document.title = `${to.meta.title} | vue-manage-system`;
+    document.title = `${to.meta.title} | ZOHO_OM`;
     const role = localStorage.getItem('ms_username');
     if (!role && to.path !== '/login') {
         next('/login');
