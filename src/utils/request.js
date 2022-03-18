@@ -10,6 +10,9 @@ const service = axios.create({
 
 service.interceptors.request.use(
     config => {
+        const token = sessionStorage.getItem('ms_token_session');
+        config.headers['X-ZH-TOKEN']=token;
+        config.headers["content-type"] = "application/json";
         return config;
     },
     error => {

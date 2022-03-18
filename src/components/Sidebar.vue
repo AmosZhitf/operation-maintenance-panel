@@ -104,10 +104,10 @@ export default {
                 index: "7",
                 title: "错误处理",
                 subs: [
-                    // {
-                    //     index: "/permission",
-                    //     title: "权限测试",
-                    // },
+                    {
+                        index: "/permission",
+                        title: "权限测试",
+                    },
                     {
                         index: "/404",
                         title: "404页面",

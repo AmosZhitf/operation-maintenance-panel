@@ -10,8 +10,8 @@
                         </template>
                     </el-input>
                 </el-form-item>
-                <el-form-item prop="password">
-                    <el-input type="password" placeholder="password" v-model="param.password"
+                <el-form-item prop="token">
+                    <el-input placeholder="token" v-model="param.token"
                         @keyup.enter="submitForm()">
                         <template #prepend>
                             <el-button icon="el-icon-lock"></el-button>
@@ -38,7 +38,7 @@ export default {
         const router = useRouter();
         const param = reactive({
             username: "",
-            password: "",
+            token: "",
         });
 
         const rules = {
@@ -49,16 +49,17 @@ export default {
                     trigger: "blur",
                 },
             ],
-            password: [
-                { required: true, message: "请输入密码", trigger: "blur" },
+            token: [
+                { required: true, message: "请输入token", trigger: "blur" },
             ],
         };
         const login = ref(null);
         const submitForm = () => {
             login.value.validate((valid) => {
-                if (valid && param.username == 'admin' && param.password == 'admin') {
+                if (valid) {
                     ElMessage.success("登录成功");
                     localStorage.setItem("ms_username", param.username);
+                    sessionStorage.setItem("ms_token_session", param.token);
                     router.push("/");
                 } else {
                     ElMessage.error("登录失败");
